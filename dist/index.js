@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2024 anqisoft@gmail.com
- * index.ts
+ * ts_selenium/index.ts
  *
  * <en_us>
  * Creation: January 17, 2024 08:20:18
@@ -22,7 +22,7 @@
  */
 // Browser
 import { Builder, By, Key, until } from 'npm:selenium-webdriver';
-export { Builder, By, Element, Key, until, WebDriver } from 'npm:selenium-webdriver';
+export { Builder, By, WebElement, Key, until, WebDriver } from 'npm:selenium-webdriver';
 // Attention: without opera.js, but has chromium.js.
 // import * as opera from 'npm:selenium-webdriver/opera.js';
 import * as chrome from 'npm:selenium-webdriver/chrome.js';
@@ -161,7 +161,7 @@ export async function navigateTo(driver, url) {
  * <zh_tw>雙擊指定元素</zh_tw>
  *
  * @param driver {WebDriver} <en_us>Browser driver</en_us><zh_cn>浏览器驱动程序</zh_cn><zh_tw>瀏覽器驅動程序</zh_tw>
- * @param element {Element} <en_us>element</en_us><zh_cn>元素</zh_cn><zh_tw>元素</zh_tw>
+ * @param element {WebElement} <en_us>element</en_us><zh_cn>元素</zh_cn><zh_tw>元素</zh_tw>
  */
 export async function doubleClick(driver, element) {
     await driver.actions({ bridge: true }).doubleClick(element).perform();
@@ -171,7 +171,7 @@ export async function doubleClick(driver, element) {
  * <zh_cn>向指定元素发送文字并回车</zh_cn>
  * <zh_tw>向指定元素發送文字並回車</zh_tw>
  *
- * @param element {Element} <en_us>element</en_us><zh_cn>元素</zh_cn><zh_tw>元素</zh_tw>
+ * @param element {WebElement} <en_us>element</en_us><zh_cn>元素</zh_cn><zh_tw>元素</zh_tw>
  * @param content {string} <en_us>The text to be sent</en_us><zh_cn>所要发送的文字</zh_cn><zh_tw>所要發送的文字</zh_tw>
  */
 export async function sendKeysAndReturn(element, content) {
@@ -184,7 +184,7 @@ export async function sendKeysAndReturn(element, content) {
  *
  * @param driver {WebDriver} <en_us>Browser driver</en_us><zh_cn>浏览器驱动程序</zh_cn><zh_tw>瀏覽器驅動程序</zh_tw>
  * @param css {string} <en_us>Find the style table used for a single element</en_us><zh_cn>查找单个元素所用的样式表</zh_cn><zh_tw>查找單個元素所用的樣式表</zh_tw>
- * @returns {Promise<Element>} <en_us>asynchronous object: element</en_us><zh_cn>异步对象：元素</zh_cn><zh_tw>異步對象：元素</zh_tw>
+ * @returns {Promise<WebElement>} <en_us>asynchronous object: element</en_us><zh_cn>异步对象：元素</zh_cn><zh_tw>異步對象：元素</zh_tw>
  */
 export async function findElementByCss(driver, css) {
     return await driver.findElement(By.css(css));
